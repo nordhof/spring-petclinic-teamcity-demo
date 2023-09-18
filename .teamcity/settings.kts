@@ -1,6 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.commitStatusPublisher
 import jetbrains.buildServer.configs.kotlin.buildFeatures.dockerSupport
+import jetbrains.buildServer.configs.kotlin.buildFeatures.notifications
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.dockerCommand
 import jetbrains.buildServer.configs.kotlin.buildSteps.maven
@@ -99,6 +100,14 @@ object Build : BuildType({
             loginToRegistry = on {
                 dockerRegistryId = "PROJECT_EXT_3"
             }
+        }
+        notifications {
+            notifierSettings = emailNotifier {
+                email = "weisgrab@nordhof.at"
+            }
+            buildFailed = true
+            buildFinishedSuccessfully = true
+            firstSuccessAfterFailure = true
         }
     }
 
