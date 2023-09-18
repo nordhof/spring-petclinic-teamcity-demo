@@ -8,4 +8,5 @@ cat << EOF > k8s/patch/patch.json
 }]
 EOF
 
-kubectl kustomize k8s/patch
+kubectl kustomize k8s/patch > k8s/final-deploy.yml
+kubectl --kubeconfig kube-config apply -f k8s/final-deploy.yml
