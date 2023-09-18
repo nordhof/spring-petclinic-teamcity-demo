@@ -1,0 +1,10 @@
+resources:
+  - ../base
+
+patches:
+  - target:
+      kind: Deployment
+      name: spring-petclinic
+      version: v1
+    path: patch.json
+
