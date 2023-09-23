@@ -123,6 +123,18 @@ object BuildContainer : BuildType({
         root(DslContext.settingsRoot)
     }
 
+    steps {
+        dockerCommand {
+            name = "Build Container"
+            commandType = build {
+                source = file {
+                    path = "Dockerfile"
+                }
+                namesAndTags = "ghcr.io/nordhof/spring-petclinic-teamcity-demo:%build.vcs.number%"
+            }
+        }
+    }
+
     features {
         perfmon {
         }
