@@ -55,7 +55,7 @@ project {
 object Build : BuildType({
     name = "Build Application"
 
-    artifactRules = "target/spring-petclinic-*.jar [ => target/spring-petclinic-%build.vcs.number%.jar ]"
+    artifactRules = "target/spring-petclinic-*.jar => target/spring-petclinic-%build.vcs.number%.jar"
 
     vcs {
         root(DslContext.settingsRoot)
