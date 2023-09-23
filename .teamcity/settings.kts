@@ -120,6 +120,7 @@ object BuildContainer : BuildType({
 
     vcs {
         root(HttpsGithubComNordhofSpringPetclinicTeamcityDemoRefsHeadsMain1)
+        root(DslContext.settingsRoot)
     }
 
     features {
