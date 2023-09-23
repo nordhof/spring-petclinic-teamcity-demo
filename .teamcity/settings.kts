@@ -53,7 +53,7 @@ project {
 }
 
 object Build : BuildType({
-    name = "Build"
+    name = "Build Application"
 
     artifactRules = "target/spring-petclinic-*.jar"
 
