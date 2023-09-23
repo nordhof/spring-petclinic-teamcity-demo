@@ -127,6 +127,10 @@ object BuildContainer : BuildType({
         perfmon {
         }
     }
+
+    requirements {
+        equals("teamcity.agent.jvm.os.arch", "aarch64")
+    }
 })
 
 object DeployToK8s : BuildType({
