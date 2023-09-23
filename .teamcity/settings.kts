@@ -135,7 +135,7 @@ object BuildContainer : BuildType({
     dependencies {
         artifacts(Build) {
             buildRule = lastSuccessful()
-            artifactRules = "spring-petclinic-%build.vcs.number%.jar"
+            artifactRules = "target/spring-petclinic-%build.vcs.number%.jar"
         }
     }
 
