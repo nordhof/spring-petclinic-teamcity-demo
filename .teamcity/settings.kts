@@ -132,6 +132,10 @@ object BuildContainer : BuildType({
 object DeployToK8s : BuildType({
     name = "Deploy to k8s"
 
+    enablePersonalBuilds = false
+    type = BuildTypeSettings.Type.DEPLOYMENT
+    maxRunningBuilds = 1
+
     vcs {
         root(DslContext.settingsRoot)
     }
