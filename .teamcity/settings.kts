@@ -133,6 +133,12 @@ object BuildContainer : BuildType({
                 namesAndTags = "ghcr.io/nordhof/spring-petclinic-teamcity-demo:%build.vcs.number%"
             }
         }
+        dockerCommand {
+            name = "Push image"
+            commandType = push {
+                namesAndTags = "ghcr.io/nordhof/spring-petclinic-teamcity-demo:%build.vcs.number%"
+            }
+        }
     }
 
     features {
