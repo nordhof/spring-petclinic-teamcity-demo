@@ -125,6 +125,11 @@ object BuildContainer : BuildType({
     features {
         perfmon {
         }
+        dockerSupport {
+            loginToRegistry = on {
+                dockerRegistryId = "PROJECT_EXT_3"
+            }
+        }
     }
 
     dependencies {
