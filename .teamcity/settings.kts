@@ -119,7 +119,6 @@ object BuildContainer : BuildType({
     name = "Build Container"
 
     vcs {
-        root(HttpsGithubComNordhofSpringPetclinicTeamcityDemoRefsHeadsMain1)
         root(DslContext.settingsRoot)
     }
 
