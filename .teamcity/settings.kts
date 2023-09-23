@@ -122,11 +122,6 @@ object BuildContainer : BuildType({
         root(HttpsGithubComNordhofSpringPetclinicTeamcityDemoRefsHeadsMain1)
     }
 
-    triggers {
-        vcs {
-        }
-    }
-
     features {
         perfmon {
         }
