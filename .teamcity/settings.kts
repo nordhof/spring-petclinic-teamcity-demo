@@ -192,7 +192,7 @@ object DeployToK8s : BuildType({
     }
 
     dependencies {
-        snapshot(Build) {
+        snapshot(BuildContainer) {
         }
     }
 
