@@ -133,9 +133,14 @@ object BuildContainer : BuildType({
     }
 
     dependencies {
-        artifacts(Build) {
-            buildRule = lastSuccessful()
-            artifactRules = "target/spring-petclinic-%build.vcs.number%.jar"
+        dependency(Build) {
+            snapshot {
+            }
+
+            artifacts {
+                buildRule = lastSuccessful()
+                artifactRules = "target/spring-petclinic-%build.vcs.number%.jar"
+            }
         }
     }
 
