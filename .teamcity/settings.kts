@@ -146,6 +146,13 @@ object BuildContainer : BuildType({
         }
     }
 
+    dependencies {
+        artifacts(Build) {
+            buildRule = lastSuccessful()
+            artifactRules = "spring-petclinic-*-SNAPSHOT.jar"
+        }
+    }
+
     requirements {
         equals("teamcity.agent.jvm.os.arch", "aarch64")
     }
