@@ -8,6 +8,7 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.projectFeatures.githubIssues
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
+import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -35,7 +36,10 @@ version = "2023.05"
 
 project {
 
+    vcsRoot(HttpsGithubComNordhofSpringPetclinicTeamcityDemoRefsHeadsMain1)
+
     buildType(Build)
+    buildType(BuildContainer)
     buildType(DeployToK8s)
 
     features {
@@ -111,6 +115,24 @@ object Build : BuildType({
     }
 })
 
+object BuildContainer : BuildType({
+    name = "Build Container"
+
+    vcs {
+        root(HttpsGithubComNordhofSpringPetclinicTeamcityDemoRefsHeadsMain1)
+    }
+
+    triggers {
+        vcs {
+        }
+    }
+
+    features {
+        perfmon {
+        }
+    }
+})
+
 object DeployToK8s : BuildType({
     name = "Deploy to k8s"
 
@@ -147,5 +169,16 @@ object DeployToK8s : BuildType({
 
     requirements {
         equals("teamcity.agent.jvm.os.arch", "aarch64")
+    }
+})
+
+object HttpsGithubComNordhofSpringPetclinicTeamcityDemoRefsHeadsMain1 : GitVcsRoot({
+    name = "https://github.com/nordhof/spring-petclinic-teamcity-demo#refs/heads/main (1)"
+    url = "https://github.com/nordhof/spring-petclinic-teamcity-demo"
+    branch = "refs/heads/main"
+    branchSpec = "refs/heads/*"
+    authMethod = password {
+        userName = "Micky002"
+        password = "credentialsJSON:9601c217-cb59-4ca0-ab40-924d0ff6dc7a"
     }
 })
